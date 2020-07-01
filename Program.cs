@@ -35,7 +35,7 @@ class Program
                 TimelineItems = i
                     .TimelineItems(null, null, null, null, null, start, null)
                     .AllPages()
-                    .Select(tl => tl.Switch<ApiTimelineItem>(when =>
+                    .Select(tl => tl == null ? null : tl.Switch<ApiTimelineItem>(when =>
                     when.IssueComment(ic => new ApiTimelineComment
                     {
                         CreatedAt = ic.CreatedAt
