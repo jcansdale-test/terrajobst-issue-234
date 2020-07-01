@@ -50,13 +50,11 @@ class Program
 
             var productInformation = new ProductHeaderValue("octokit.graphql.net");
             var connection = new Connection(productInformation, apiKey);
-            var vars = new Dictionary<string, object>();
 
-            vars["owner"] = "dotnet";
-            vars["repo"] = "runtime";
             try
             {
-                var current = await connection.Run(query, vars);
+                Console.WriteLine(query);
+                var current = await connection.Run(query);
 
                 foreach(var foo in current)
                 {
