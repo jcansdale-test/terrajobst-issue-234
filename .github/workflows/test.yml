@@ -1,6 +1,10 @@
 on:
   push:
 
+  # run when starred
+  watch:
+    types: [started]  
+
 jobs:
   build:
     runs-on: ubuntu-latest
