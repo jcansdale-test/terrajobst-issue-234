@@ -6,7 +6,7 @@ using Octokit.GraphQL.Model;
 
 class Program
 {
-    static async Task Main()
+    static async Task<int> Main()
     {
         var apiKey = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
         apiKey = apiKey ?? throw new ApplicationException("Please set the GITHUB_TOKEN environment variable");
@@ -64,7 +64,10 @@ class Program
         catch (Exception ex)
         {
             Console.WriteLine(ex);
+            return 1;
         }
+
+        return 0;
     }
 }
 
